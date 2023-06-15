@@ -44,11 +44,11 @@ Ces informations seront affichées dans la console.
 ## SITOGRAPHIE 
 
 Pour les commentaires et la compréhension : 
-    - Comprendre l'arbre de décision: https://mlu-explain.github.io/decision-tree/
-    - L'algorithme d'arbre de décision expliqué: https://www.kdnuggets.com/2020/01/decision-tree-algorithm-explained.html
+- Comprendre l'arbre de décision: https://mlu-explain.github.io/decision-tree/
+- L'algorithme d'arbre de décision expliqué: https://www.kdnuggets.com/2020/01/decision-tree-algorithm-explained.html
 
 Pour la construction de l'arbre de décision en Python :
-    - Les arbres de décision from scratch: https://www.aiforyou.fr/les-arbres-de-decision-from-scratch/
-    - Implémentation d'un arbre de décision à partir de zéro: https://towardsdatascience.com/implementing-a-decision-tree-from-scratch-f5358ff9c4bb
+- Les arbres de décision from scratch: https://www.aiforyou.fr/les-arbres-de-decision-from-scratch/
+- Implémentation d'un arbre de décision à partir de zéro: https://towardsdatascience.com/implementing-a-decision-tree-from-scratch-f5358ff9c4bb
 
 
