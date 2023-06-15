@@ -83,7 +83,7 @@ class arbre_decision:
         on supprime lorsque une étiquette n'apparait pas puis on calcule l'entropie.
         '''
         prob = np.bincount(y) / len(y)  
-        prob = prob[prob != 0]  #
+        prob = prob[prob != 0]  
         entropy = -np.sum(prob * np.log2(prob))  
         return entropy
     
@@ -94,7 +94,7 @@ class arbre_decision:
         '''
         prob = np.bincount(y) / len(y)   
         prob = prob[prob != 0] 
-        gini = 1 - np.sum(prob**2)  # calcule de l'impurete de Gini ()
+        gini = 1 - np.sum(prob**2)  
         return gini
 
     def calcul_chi2(self, y):
@@ -105,12 +105,16 @@ class arbre_decision:
         Si la moyenne de "nb" est égal à 0, chi2 = 0 car le dénominateur ne peut pas 
         être égale à 0 dans une division.
         '''
+        if len(y) == 0:
+            return 0
+
         nb = np.bincount(y)  
         if nb.mean() != 0:
             chi2 = np.sum((nb - nb.mean()) ** 2 / nb.mean())
         else:
             chi2 = 0 
         return chi2  
+
 
     def calcul_impurete(self, y):
         '''
@@ -163,9 +167,10 @@ class arbre_decision:
         '''
         val, nb = np.unique(y, return_counts=True)  
         if len(nb) == 0:
-            return 0, len(y), None
+            return 0, len(y)
         else:
             return val[np.argmax(nb)],len(y) 
+
 
     ##Étape 5 : Construction de l'arbre
     def construct(self, X, y, prof, parent_effectif=None):
@@ -200,9 +205,11 @@ class arbre_decision:
     ##Étape 7 : Affichage de l'arbre de décision dans la console.
     def affiche_noeud(self, noeud, noms_variables, indent=''):
         ''' 
-        CAffiche de manière récursive chaque noeud indiquant la condition de
-        division pour les noeuds internes et la prédiction / l'effectif / la proportion 
-        pour les feuilles.
+        Affiche de manière récursive chaque noeud indiquant la condition de
+        division pour les noeuds internes et la prédiction / l'effectif (représente 
+        le nombre d'échantillons dans la feuille spécifique) / 
+        la proportion (égale à la proportion d'échantillons par rapport à l'effectif 
+        total de l'ensemble de données) pour les feuilles.
         '''
         if noeud.est_feuille():
             print(indent + "Prédiction :", noeud.val)
@@ -248,13 +255,4 @@ class arbre_decision:
         Applique la fonction _predict à chaque echantillon.
         '''
         return np.array([self._predict(echantillon, self.racine) for echantillon in X])  
-
-
-
-
-
-
-
-
-
 
