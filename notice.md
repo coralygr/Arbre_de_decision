@@ -11,7 +11,7 @@
 - Date : 15/06/2023
 - Enseignant : Miguel PALENCIA-OLIVAR
 - Version de Python : Python 3.9.13
-- 
+
 
 ## Dépendances
 Les dépendances requises pour exécuter le code sont les suivantes :
