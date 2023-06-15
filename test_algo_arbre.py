@@ -41,9 +41,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 ############################ ENTRAÎNEMENT ###########s#########################
 
 #on créé et entraine l'arbre de décision en définissant le critère d'impureté sur 
-#l'entropy et le maximum de feuille à 5 les autres paramètres prendront les valeurs 
+#gini et le maximum de feuille à 5 les autres paramètres prendront les valeurs 
 #que nous avons définis par défault lors du codage de l'algorihtme
-arbre = arbre_decision(prof_max=5, critere='gini')
+arbre = arbre_decision(prof_max=5, critere='gini') #Liste des critères valides : gini / entropy / chi2
 arbre.train(X_train, y_train)
 noms_variables = iris.feature_names
 arbre.affiche_arbre(noms_variables)
@@ -73,10 +73,4 @@ print(matrice_confusion)
 #5 observations de la deuxième classe ont été correctement prédites
 #1 a été incorrectement prédite comme appartenant à la troisième classe
 #13 observations de la troisième classe ont été correctement prédites 
-
-
-
-
-
-
 
